@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración · Tienda de Juegos</title>
+  <link rel="stylesheet" href="admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Panel de Administración · Juegos</h1>
+      <p class="meta">Resumen y control de ventas, usuarios y catálogo</p>
+    </div>
+    <div class="acciones">
+      <button class="btn secundario">Refrescar</button>
+      <button class="btn primario">Exportar CSV</button>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <!-- Indicadores principales -->
+    <section class="grid col-4">
+      <div class="tarjeta kpi">
+        <h3>Ventas HOY</h3>
+        <p class="valor">85.000CLP</p>
+        <small>3 transacciones</small>
+      </div>
+      <div class="tarjeta kpi">
+        <h3>Ventas SEMANA</h3>
+        <p class="valor">420.000CLP</p>
+        <small>14 transacciones</small>
+      </div>
+      <div class="tarjeta kpi">
+        <h3>Ventas MES</h3>
+        <p class="valor">1.850.000CLP</p>
+        <small>62 transacciones</small>
+      </div>
+      <div class="tarjeta">
+        <h3>Estado</h3>
+        <ul class="lista">
+          <li><span>Pendientes</span><span class="chip">2</span></li>
+          <li><span>Fallidas</span><span class="chip">1</span></li>
+          <li><span>Nuevos usuarios (7 días)</span><span class="chip">5</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Juegos más vendidos -->
+    <section class="grid col-2">
+      <div class="tarjeta">
+        <h2>Juegos más vendidos</h2>
+        <div class="lista-juegos">
+          <div class="juego">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/367520/header.jpg" alt="Hollow Knight">
+            <div>
+              <strong>Hollow Knight</strong>
+              <p>20 ventas</p>
+            </div>
+            <span class="chip">599.800CLP</span>
+          </div>
+          <div class="juego">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1030300/header.jpg" alt="Silksong">
+            <div>
+              <strong>Hollow Knight: Silksong</strong>
+              <p>15 ventas</p>
+            </div>
+            <span class="chip">449.850CLP</span>
+          </div>
+          <div class="juego">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg" alt="Stardew Valley">
+            <div>
+              <strong>Stardew Valley</strong>
+              <p>10 ventas</p>
+            </div>
+            <span class="chip">65.000CLP</span>
+          </div>
+        </div>
+      </div>
+      <div class="tarjeta">
+        <h2>Ingresos últimos 12 meses</h2>
+        <canvas id="graficoIngresos" height="200"></canvas>
+      </div>
+    </section>
+
+    <!-- Clientes -->
+    <section class="tarjeta">
+      <h2>Clientes / Usuarios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>RUT</th>
+            <th>Correo</th>
+            <th>Compras</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>María López</td>
+            <td>18.345.678-9</td>
+            <td>maria@gmail.com</td>
+            <td>5</td>
+            <td><span class="estado activo">Activo</span></td>
+          </tr>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>20.987.654-3</td>
+            <td>juan@gmail.com</td>
+            <td>3</td>
+            <td><span class="estado suspendido">Suspendido</span></td>
+          </tr>
+          <tr>
+            <td>Paula Roguez</td>
+            <td>16.111.222-5</td>
+            <td>pao@gmail.com</td>
+            <td>7</td>
+            <td><span class="estado activo">Activo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Compras recientes -->
+    <section class="tarjeta">
+      <h2>Compras recientes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Juego</th>
+            <th>Método</th>
+            <th>Monto</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>07-09-2025</td>
+            <td>María López</td>
+            <td>Hollow Knight</td>
+            <td>Tarjeta</td>
+            <td>29.990CLP</td>
+            <td><span class="estado pagado">Pagado</span></td>
+          </tr>
+          <tr>
+            <td>06-09-2025</td>
+            <td>Juan Pérez</td>
+            <td>Silksong</td>
+            <td>PayPal</td>
+            <td>29.990CLP</td>
+            <td><span class="estado pendiente">Pendiente</span></td>
+          </tr>
+          <tr>
+            <td>05-09-2025</td>
+            <td>Pao Rodríguez</td>
+            <td>Stardew Valley</td>
+            <td>Tarjeta</td>
+            <td>6.500CLP</td>
+            <td><span class="estado cancelado">Cancelado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const ctx = document.getElementById("graficoIngresos");
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep"],
+        datasets: [{
+          label: "Ingresos",
+          data: [120000, 150000, 200000, 180000, 220000, 300000, 250000, 400000, 1850000],
+          fill: true,
+          borderColor: "#22c55e",
+          backgroundColor: "rgba(34,197,94,0.3)",
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            ticks: {
+              callback: function(value) {
+                return '$' + value.toLocaleString('es-CL');
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

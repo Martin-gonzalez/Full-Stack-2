@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  background: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header .meta {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.col-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tarjeta {
+  background: #1f2937;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.tarjeta h2, .tarjeta h3 {
+  margin-top: 0;
+}
+
+.kpi .valor {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.chip {
+  background: #374151;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.lista-juegos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.juego {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.juego img {
+  width: 80px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.juego div {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+thead th {
+  text-align: left;
+  font-size: 12px;
+  color: #9ca3af;
+  padding: 6px;
+}
+tbody td {
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.estado {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.estado.activo { background: #065f46; color: #d1fae5; }
+.estado.suspendido { background: #78350f; color: #fde68a; }
+.estado.pagado { background: #065f46; color: #d1fae5; }
+.estado.pendiente { background: #92400e; color: #fde68a; }
+.estado.cancelado { background: #7f1d1d; color: #fecaca; }
+
+.btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn.primario { background: #22c55e; color: #0f172a; font-weight: 600; }
+.btn.secundario { background: #374151; color: #e5e7eb; }
+
