@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #1A1A2E;
+  color: #F0F0F0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  background: #16213E;
+  border-bottom: 1px solid #0F3460;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header .meta {
+  font-size: 12px;
+  color: #BBBBBB;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.col-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tarjeta {
+  background: #16213E;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #0F3460;
+}
+
+.tarjeta h2, .tarjeta h3 {
+  margin-top: 0;
+}
+
+.kpi .valor {
+  font-size: 22px;
+  font-weight: 700;
+  color: #E94560;
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.chip {
+  background: #0F3460;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #F0F0F0;
+}
+
+.lista-juegos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.juego {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1A1A2E;
+  border-radius: 12px;
+  padding: 8px 12px;
+  border: 1px solid #0F3460;
+}
+.juego img {
+  width: 80px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.juego div {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+thead th {
+  text-align: left;
+  font-size: 12px;
+  color: #BBBBBB;
+  padding: 6px;
+}
+tbody td {
+  background: #1A1A2E;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #0F3460;
+}
+
+.estado {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.estado.activo { background: #065f46; color: #d1fae5; }
+.estado.suspendido { background: #78350f; color: #fde68a; }
+.estado.pagado { background: #065f46; color: #d1fae5; }
+.estado.pendiente { background: #92400e; color: #fde68a; }
+.estado.cancelado { background: #7f1d1d; color: #fecaca; }
+
+.btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn.primario { background: #E94560; color: #F0F0F0; font-weight: 600; }
+.btn.secundario { background: #0F3460; color: #F0F0F0; }
